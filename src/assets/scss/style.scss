@@ -1,11 +1,14 @@
 @charset "UTF-8";
 
 // setting
-@import './setting/reset';
-@import './setting/root';
-@import './setting/mixin';
-@import './setting/common';
+@import "./setting/reset";
+@import "./setting/root";
+@import "./setting/mixin";
+@import "./setting/common";
 
 // content
-@import './components/header';
-@import './components/footer';
+@import "./components/header";
+@import "./components/footer";
+
+// pages
+@import "./components/yih_home";
