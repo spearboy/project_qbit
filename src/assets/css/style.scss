@@ -1,9 +1,15 @@
 @charset "UTF-8";
 
 // setting
-@import './setting/reset';
-@import './setting/root';
-@import './setting/mixin';
-@import './setting/common';
+@import "./setting/reset";
+@import "./setting/root";
+@import "./setting/mixin";
+@import "./setting/common";
 
-@import './components/header';
+@import "./components/header";
+
+//main
+@import "./main/tabmenu";
+@import "./main/storeinfo";
+@import "./main/menuinfo";
+@import "./main/menuitem";
