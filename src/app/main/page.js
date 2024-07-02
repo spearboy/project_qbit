@@ -1,11 +1,12 @@
+// pages/main/page.js
 import Store_info from "@/components/main/Store_info";
 import TabMenu from "@/components/main/Tab_menu";
 import Menu from "@/components/main/Menu_info";
-
-import "@/assets/css/style.scss";
 import Line from "@/components/common/Line";
 
-export default function main() {
+import "@/assets/css/style.scss";
+
+export default function MainPage() {
   const tabs = [
     "추천메뉴",
     "사이드",
@@ -43,7 +44,7 @@ export default function main() {
       imageUrl: "/img/menu04.png",
     },
     {
-      label: "품절",
+      label: "soldout",
       name: "보미픽 고구마",
       price: "6,000",
       imageUrl: "/img/menu02.png",
