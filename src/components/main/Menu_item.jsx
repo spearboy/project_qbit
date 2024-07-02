@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const MenuItem = ({ label, name, price, imageUrl }) => {
   return (
-    <div className="menuItem">
+    <div className={`menuItem ${label === "품절" ? "품절" : ""}`}>
       <div className="menuItem_info">
         {label && (
           <div className={`menuItem_label ${label.toLowerCase()}`}>{label}</div>

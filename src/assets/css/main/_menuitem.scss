@@ -43,11 +43,15 @@
 
     &.best {
       background-color: var(--main-color-500);
-      color: white;
+      color: var(--sub-color-100);
     }
     &.new {
       background-color: var(--system-color-green);
-      color: white;
+      color: var(--sub-color-100);
+    }
+    &.품절 {
+      background-color: var(--greyscale-color-500);
+      color: var(--greyscale-color-100);
     }
   }
 
@@ -56,6 +60,19 @@
       width: 80px;
       height: 80px;
       border-radius: 4px;
+    }
+  }
+
+  &.품절 {
+    .menuItem_info .menuItem_name {
+      color: var(--greyscale-color-300);
+    }
+    .menuItem_info .menuItem_price {
+      color: var(--greyscale-color-300);
+    }
+
+    .menuItem_image img {
+      opacity: 0.2;
     }
   }
 }
