@@ -56,7 +56,7 @@ export default function main() {
       <TabMenu tabs={tabs} />
       <Menu title="추천 메뉴" items={menuItems} />
       <Line />
-      <Menu title="사이드" items={sideMenus} />
+      <Menu title="사이드" items={sideMenus} isLast />
     </div>
   );
 }
