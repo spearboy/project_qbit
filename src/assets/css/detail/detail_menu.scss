@@ -1,0 +1,96 @@
+.detail_menu_top{
+    width: 100%;
+    min-height: calc(100vh - 530px);
+
+    h2{
+        margin-top: 32px;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 24px;
+    }
+
+    p{
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 20px;
+        color: var(--greyscale-color-500);
+    }
+
+    .btn{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 24px;
+        padding-bottom: 32px;
+
+        p{
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 36px;
+        }
+    }
+}
+
+img{
+    width: 100%;
+    
+}
+
+.detail_menu_bottom{
+    width: 100%;
+    min-height: calc(100vh - 626px);
+
+    .basic{
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--greyscale-color-100);
+        ul{
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            &:nth-child(1){
+                margin-top: 32px;
+            }
+            li{
+                &:nth-child(1){
+                    font-size: 14px;
+                    font-weight: bold;
+                    line-height: 22px;
+                }
+
+                &:nth-child(2){
+                    font-size: 12px;
+                    font-weight: normal;
+                    line-height: 18px;
+                    color: var(--greyscale-color-400);
+                    
+                }
+            }
+        }
+    }
+
+    .addition{
+        margin-top: 32px;
+        padding-bottom: 150px;
+
+        ul{
+            li{
+                &:nth-child(1){
+                    font-size: 14px;
+                    font-weight: bold;
+                    line-height: 22px;
+                }
+
+                &:nth-child(2){
+                    font-size: 12px;
+                    font-weight: normal;
+                    line-height: 18px;
+                    color: var(--greyscale-color-400);
+                }
+            }
+        }
+    }
+}
