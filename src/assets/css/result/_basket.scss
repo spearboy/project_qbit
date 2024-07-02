@@ -143,7 +143,13 @@
                     font-weight: 500;
                     line-height: 20px;
 
-                    
+                    span{
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 20px;
+                        color: var(--main-color-500);
+                        margin-left: 4px;
+                    }
                 }  
                 
                 &:nth-child(2){
