@@ -74,3 +74,17 @@
         bottom: $b;
     }
 }
+
+@mixin icon-size($size) {
+    width: $size;
+    min-width: $size;
+    max-width: $size;
+    height: $size;
+    min-height: $size;
+    max-height: $size;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    font-style: normal;
+}

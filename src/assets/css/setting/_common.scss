@@ -2,3 +2,180 @@
     width: 100%;
     padding: 0px 24px;
 }
+
+.main__button {
+    min-width: fit-content;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 16px;
+    gap: 10px;
+    background-color: var(--main-color-500);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: var(--greyscale-color-000);
+    &:hover {
+
+    }
+}
+.sub__button {
+    width: 100%;
+    min-width: fit-content;
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 16px;
+    gap: 10px;
+    background-color: var(--greyscale-color-200);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: var(--greyscale-color-500);
+}
+.call__button {
+    width: 88px;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 16px;
+    border-radius: 20px;
+    background-color: var(--greyscale-color-000);
+    border: 1px solid var(--main-color-500);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: var(--main-color-500);
+}
+
+.button__disabled {
+    background-color: var(--greyscale-color-200) !important;
+    color: var(--greyscale-color-300) !important;
+}
+
+
+.top__header {
+    width: 100%;
+    height: 50px;
+    padding: 0px 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    .right__action__buttons {
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 8px;
+    }
+}
+
+.icon-24 {
+    @include icon-size(24px);
+    cursor: pointer;
+    &-arrow-down {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_down.svg');
+    }
+
+    &-arrow-left {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_left.svg');
+    }
+
+    &-arrow-right {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_right.svg');
+    }
+
+    &-arrow-up {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_up.svg');
+    }
+
+    &-refresh {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_refresh.svg');
+    }
+
+    &-plus {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_add.svg');
+    }
+
+    &-minus {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_less.svg');
+    }
+
+    &-like {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_like.svg');
+    }
+
+    &-like-active {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_like_active.svg');
+    }
+
+    &-close {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_close.svg');
+    }
+
+    &-delete {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_delete.svg');
+    }
+
+    &-download {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_download.svg');
+    }
+
+    &-search {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_search.svg');
+    }
+
+    &-trash {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_trash.svg');
+    }
+
+    &-setting {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_setting.svg');
+    }
+
+    &-menu {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_menu.svg');
+    }
+
+    &-bag {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_bag.svg');
+    }
+
+    &-receipt {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_receipt.svg');
+    }
+}
