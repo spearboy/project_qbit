@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Shopping_basket = () => {
+const Your_basket = () => {
   return (
       <div className='youmenu'>
         <h2>멤버가 담은 메뉴</h2>
@@ -9,4 +9,4 @@ const Shopping_basket = () => {
   )
 }
 
-export default Shopping_basket
+export default Your_basket
