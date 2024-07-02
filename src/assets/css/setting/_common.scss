@@ -2,18 +2,35 @@
     width: 100%;
     padding: 0px 24px;
 }
+
+input[type=checkbox] {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    outline: none;
+    border: 0px;
+    display: block;
+    background-image: url('../../images/icons/check_default.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    &:checked {
+        background-image: url('../../images/icons/check_selected.svg');
+    }
+    &:disabled {
+        background-image: url('../../images/icons/check_disabled.svg') !important;
+        cursor: default !important;
+    }
+}
 .button__count__box {
     position: relative;
     width: 30px;
     height: 26px;
-    display: flex;
-    flex-direction: column;
     border-radius: 8px;
-    opacity: 1;
     background-color: var(--greyscale-color-000);
     font-size: 18px;
     font-weight: 500;
-    line-height: 26px;
     text-align: center;
     letter-spacing: -0.02em;
     color: var(--main-color-500);
@@ -31,7 +48,6 @@
     background-color: var(--main-color-500);
     font-size: 18px;
     font-weight: 500;
-    line-height: 26px;
     text-align: center;
     letter-spacing: -0.02em;
     color: var(--greyscale-color-000);
@@ -54,7 +70,6 @@
     background-color: var(--greyscale-color-200);
     font-size: 18px;
     font-weight: 500;
-    line-height: 26px;
     text-align: center;
     letter-spacing: -0.02em;
     color: var(--greyscale-color-500);
@@ -78,13 +93,13 @@
     text-align: center;
     letter-spacing: -0.02em;
     color: var(--main-color-500);
-    border-radius: 8px;
     cursor: pointer;
 }
 
 .button__disabled {
     background-color: var(--greyscale-color-200) !important;
     color: var(--greyscale-color-300) !important;
+    cursor: default !important;
 }
 
 
@@ -118,6 +133,45 @@
     justify-content: flex-end;
     padding-bottom: 24px;
     background: linear-gradient(1deg, #FFFFFF 69%, rgba(255, 255, 255, 0) 96%);
+}
+.quantity__wrapper {
+    width: fit-content;
+    gap: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    input {
+        appearance: none;
+        width: 34px;
+        height: 36px;
+        padding: 6px 2px;
+        border: 0px;
+        outline: none;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 24px;
+        text-align: center;
+        letter-spacing: -0.02em;
+        color: var(--greyscale-color-600);
+    }
+    .quantity__button {
+        width: 36px;
+        height: 36px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        cursor: pointer;
+        &.remove {
+            background-image: url('../../images/icons/quantity_remove.svg');
+            &.disabled {
+                cursor: default;
+                background-image: url('../../images/icons/quantity_remove_disabled.svg');
+            }
+        }
+        &.add {
+            background-image: url('../../images/icons/quantity_add.svg');
+        }
+    }
 }
 
 .icon-24 {
