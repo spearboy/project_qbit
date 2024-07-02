@@ -5,7 +5,15 @@ import Menu from "@/components/main/Menu_info";
 import "@/assets/css/style.scss";
 
 export default function main() {
-  const tabs = ["추천메뉴", "사이드", "음료", "주류", "메뉴명", "어쩌고"];
+  const tabs = [
+    "추천메뉴",
+    "사이드",
+    "음료",
+    "주류",
+    "메뉴명",
+    "어쩌고",
+    "추가 아이템",
+  ];
   const menuItems = [
     {
       label: "BEST",
