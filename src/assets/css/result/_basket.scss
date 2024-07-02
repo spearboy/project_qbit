@@ -12,6 +12,31 @@
     }
 
     p{
+        margin-top: 8px;
+        margin-bottom: 32px;
+        font-family: Spoqa Han Sans Neo;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 20px;
+        color: var(--greyscale-color-400);
+    }
+}
+
+.youmenu{
+    width: 100%;
+    height: calc(100vh - 202px);
+
+    h2{
+        margin-top: 32px;
+        font-family: Spoqa Han Sans Neo;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 24px;
+        color: var(--greyscale-color-600);
+    }
+
+    p{
+        margin-top: 8px;
         font-family: Spoqa Han Sans Neo;
         font-size: 14px;
         font-weight: normal;
