@@ -1,10 +1,10 @@
+import Button from "./Button"
+
 export const Footer = () => {
   return (
     <div className="bottom__wrapper container" >
-      <div className="main__button">
-        <div className="button__count__box">23</div>
-        18,500원 담기
-      </div>
+      <Button className={'main__button'} itemQuantity={20}>18,500원 담기</Button>
     </div>
   )
 }
+
