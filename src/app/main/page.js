@@ -3,9 +3,18 @@ import TabMenu from "@/components/main/Tab_menu";
 import Menu from "@/components/main/Menu_info";
 
 import "@/assets/css/style.scss";
+import Line from "@/components/common/Line";
 
 export default function main() {
-  const tabs = ["추천메뉴", "사이드", "음료", "주류", "메뉴명", "어쩌고"];
+  const tabs = [
+    "추천메뉴",
+    "사이드",
+    "음료",
+    "주류",
+    "메뉴명",
+    "어쩌고",
+    "추가 아이템",
+  ];
   const menuItems = [
     {
       label: "BEST",
@@ -31,6 +40,7 @@ export default function main() {
       <Store_info name="큐빗 라멘 안산중앙점" viewers={3} tableNumber="02" />
       <TabMenu tabs={tabs} />
       <Menu title="추천 메뉴" items={menuItems} />
+      <Line />
     </div>
   );
 }

@@ -7,9 +7,13 @@
 @import "./setting/common";
 
 @import "./components/header";
+@import "./components/line";
 
 //main
 @import "./main/tabmenu";
 @import "./main/storeinfo";
 @import "./main/menuinfo";
 @import "./main/menuitem";
+
+//result
+@import "./result/basket";
