@@ -1,6 +1,6 @@
-// components/main/MenuItem.jsx
 import React from "react";
 import PropTypes from "prop-types";
+import Image from "next/image"; //이미지 최적화
 
 const MenuItem = ({ label, name, price, imageUrl }) => {
   return (
@@ -13,7 +13,7 @@ const MenuItem = ({ label, name, price, imageUrl }) => {
         <div className="menuItem_price">{price}원</div>
       </div>
       <div className="menuItem_image">
-        <img src={imageUrl} alt={name} />
+        <Image src={imageUrl} alt={name} width={80} height={80} quality={75} />{" "}
       </div>
     </div>
   );
