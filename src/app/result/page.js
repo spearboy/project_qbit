@@ -1,9 +1,11 @@
-import Test from "@/components/result/Test";
+import My_basket from "@/components/result/My_basket";
+import Your_basket from "@/components/result/Your_basket";
 
 export default function Result() {
     return (
         <div className="container">
-            <Test />
+            <My_basket />
+            <Your_basket />
         </div>
     );
 }
