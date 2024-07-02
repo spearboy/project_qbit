@@ -1,8 +1,7 @@
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
-
 .tabmenu_container {
   width: 100%;
+  margin-bottom: 32px;
+  // @include flex(null, center, center, null, null);
 
   .tabMenu {
     background: linear-gradient(270deg, #ffff 35%, rgba(255, 255, 255, 0) 100%);
@@ -26,8 +25,8 @@
       line-height: 24px;
       color: var(--greyscale-color-400);
       position: relative;
-
       @include flex(column, center, center, null, null);
+      flex: 1;
 
       &.selected {
         color: var(--greyscale-color-600);
