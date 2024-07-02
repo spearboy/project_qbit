@@ -3,7 +3,7 @@
   //   min-width: 327px;
   height: 52px;
   @include flex(null, null, space-between, null, null);
-  margin-bottom: 24px;
+  margin: 24px 0 24px 0;
 
   .store_left {
     position: relative;

@@ -1,6 +1,6 @@
 .tabmenu_container {
   width: 100%;
-  margin-bottom: 32px;
+  overflow: auto;
   // @include flex(null, center, center, null, null);
 
   .tabMenu {
