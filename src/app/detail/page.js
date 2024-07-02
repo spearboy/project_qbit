@@ -1,6 +1,9 @@
+import Quantity from "@/components/common/Quantity";
 
 export default function Detail() {
     return (
-        <div className="container">Detail</div>
+        <div className="container">
+            <Quantity />
+        </div>
     );
 }
