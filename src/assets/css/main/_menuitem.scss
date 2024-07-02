@@ -49,13 +49,14 @@
       background-color: var(--system-color-green);
       color: var(--sub-color-100);
     }
-    &.품절 {
+    &.soldout {
       background-color: var(--greyscale-color-500);
       color: var(--greyscale-color-100);
     }
   }
 
   .menuItem_image {
+    position: relative;
     img {
       width: 80px;
       height: 80px;
@@ -63,7 +64,7 @@
     }
   }
 
-  &.품절 {
+  &.soldout {
     .menuItem_info .menuItem_name {
       color: var(--greyscale-color-300);
     }
