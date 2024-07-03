@@ -3,12 +3,15 @@
 
 import React, { useState, useRef, useEffect } from "react";
 
-const TabMenu = ({ tabs }) => {
+const TabMenu = ({ tabs, onTabSelect }) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const tabRefs = useRef([]);
 
   const handleTabClick = (index) => {
     setSelectedTab(index);
+    if (onTabSelect) {
+      onTabSelect(index);
+    }
   };
 
   useEffect(() => {
@@ -16,10 +19,12 @@ const TabMenu = ({ tabs }) => {
     if (selectedTabElement) {
       const offsetLeft = selectedTabElement.offsetLeft;
       const offsetWidth = selectedTabElement.offsetWidth;
-      const afterElement = document.querySelector(".tabMenu .tab-highlight");
-      if (afterElement) {
-        afterElement.style.transform = `translateX(${offsetLeft}px)`;
-        afterElement.style.width = `${offsetWidth}px`;
+      const highlightElement = document.querySelector(
+        ".tabMenu .tab-highlight"
+      );
+      if (highlightElement) {
+        highlightElement.style.transform = `translateX(${offsetLeft}px)`;
+        highlightElement.style.width = `${offsetWidth}px`;
       }
     }
   }, [selectedTab]);

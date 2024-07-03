@@ -7,7 +7,7 @@ import Menu from "@/components/main/Menu_info";
 import Line from "@/components/common/Line";
 
 import "@/assets/css/style.scss";
-import { useState } from "react";
+import { useRef } from "react";
 
 export default function MainPage() {
   const tabs = [
@@ -19,6 +19,7 @@ export default function MainPage() {
     "어쩌고",
     "추가 아이템",
   ];
+
   const menuItems = [
     {
       label: "BEST",
@@ -54,13 +55,30 @@ export default function MainPage() {
     },
   ];
 
+  // 탭에서 클릭했을 때 해당 메뉴로 이동
+  const menuRefs = tabs.reduce((acc, tab) => {
+    acc[tab] = useRef(null);
+    return acc;
+  }, {});
+
+  const handleTabSelect = (index) => {
+    const tab = tabs[index];
+    const menuRef = menuRefs[tab];
+    if (menuRef.current) {
+      const offsetTop =
+        menuRef.current.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: offsetTop, behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="main">
       <Store_info name="큐빗 라멘 안산중앙점" viewers={3} tableNumber="02" />
-      <TabMenu tabs={tabs} />
-      <Menu title="추천 메뉴" items={menuItems} />
+      <TabMenu tabs={tabs} onTabSelect={handleTabSelect} />
+      <Menu title="추천메뉴" items={menuItems} ref={menuRefs["추천메뉴"]} />
       <Line />
-      <Menu title="사이드" items={sideMenus} isLast />
+      <Menu title="사이드" items={sideMenus} ref={menuRefs["사이드"]} isLast />
+      {/* 필요한 다른 Menu 컴포넌트 추가 */}
     </div>
   );
 }
