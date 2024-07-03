@@ -1,10 +1,13 @@
-// pages/main/page.js
+// src/app/main/page.js
+"use client";
+
 import Store_info from "@/components/main/Store_info";
 import TabMenu from "@/components/main/Tab_menu";
 import Menu from "@/components/main/Menu_info";
 import Line from "@/components/common/Line";
 
 import "@/assets/css/style.scss";
+import { useState } from "react";
 
 export default function MainPage() {
   const tabs = [
