@@ -9,8 +9,12 @@ import Line from "@/components/common/Line";
 import "@/assets/css/style.scss";
 import Button from "@/components/common/Button";
 import { useRef } from "react";
+import { useRouter } from 'next/navigation';
 
 export default function MainPage() {
+  const nowPrice = 0;
+  const router = useRouter();
+
   const tabs = [
     "추천메뉴",
     "사이드",
@@ -71,6 +75,9 @@ export default function MainPage() {
       window.scrollTo({ top: offsetTop, behavior: "smooth" });
     }
   };
+  const handleGoBag = () => {
+    router.push('/bag');
+  };
 
   return (
     <div className="main">
@@ -79,7 +86,9 @@ export default function MainPage() {
       <Menu title="추천메뉴" items={menuItems} ref={menuRefs["추천메뉴"]} />
       <Line />
       <Menu title="사이드" items={sideMenus} ref={menuRefs["사이드"]} isLast />
-      {/* 필요한 다른 Menu 컴포넌트 추가 */}
+      <div className="bottom__wrapper container">
+        <Button className={'main__button'} onClick={handleGoBag}>{nowPrice}원 확인하러가기</Button>
+      </div>
     </div>
   );
 }

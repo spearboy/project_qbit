@@ -8,7 +8,7 @@ export const Header = () => {
         <Link href={'/result'}>
           <i className="icon-24-receipt"></i>
         </Link>
-        <Link href={'/result'}>
+        <Link href={'/bag'}>
           <i className="icon-24-bag"></i>
         </Link>
       </div>
