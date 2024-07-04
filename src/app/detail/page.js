@@ -1,31 +1,36 @@
 "use client"
+
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Detail_menu_top from "@/components/detail/Detail_menu_top";
 import Detail_menu_bottom from "@/components/detail/Detail_menu_bottom";
 import Image from "@/components/common/Image";
 import Line from "@/components/common/Line";
 import Button from '@/components/common/Button';
-import { useRouter } from 'next/navigation';
+import { useBag } from '@/context/BagContext';
 
 export default function Detail() {
   const [basePrice] = useState(18000);
   const [totalPrice, setTotalPrice] = useState(basePrice);
   const [quantity, setQuantity] = useState(1);
   const [optionPrice, setOptionPrice] = useState(0);
+  const { addItem } = useBag();
   const router = useRouter();
 
   const handlePriceChange = (newTotalPrice, newQuantity) => {
     setQuantity(newQuantity);
-    setTotalPrice(newTotalPrice + optionPrice * newQuantity);
+    setTotalPrice((basePrice + optionPrice) * newQuantity);
   };
 
-  const handleOptionChange = (newOptionPrice) => {
+  const handleOptionChange = (mainOptionPrice, subOptionsTotalPrice) => {
+    const newOptionPrice = mainOptionPrice + subOptionsTotalPrice;
     setOptionPrice(newOptionPrice);
     setTotalPrice((basePrice + newOptionPrice) * quantity);
   };
 
   const handleButtonClick = () => {
-    router.push('/result');
+    addItem(basePrice + optionPrice, quantity);
+    router.push('/main'); // '/result' 페이지로 이동
   };
 
   return (
@@ -41,12 +46,7 @@ export default function Detail() {
         <Detail_menu_bottom onOptionChange={handleOptionChange} />
       </div>
       <div className="bottom__wrapper container">
-        <Button 
-          className={'main__button'} 
-          itemQuantity={quantity} 
-          totalPrice={totalPrice} // totalPrice를 넘겨줌
-          onClick={handleButtonClick}
-        >
+        <Button className={'main__button'} itemQuantity={quantity} onClick={handleButtonClick}>
           {totalPrice}원 담기
         </Button>
       </div>

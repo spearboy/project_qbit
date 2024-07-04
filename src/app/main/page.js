@@ -1,18 +1,16 @@
-// src/app/main/page.js
 "use client";
-
 import Store_info from "@/components/main/Store_info";
 import TabMenu from "@/components/main/Tab_menu";
 import Menu from "@/components/main/Menu_info";
 import Line from "@/components/common/Line";
-
-import "@/assets/css/style.scss";
 import Button from "@/components/common/Button";
 import { useRef } from "react";
 import { useRouter } from 'next/navigation';
+import { useBag } from '@/context/BagContext';
 
-export default function MainPage() {
-  const nowPrice = 0;
+const MainPage = () => {
+  const { bag } = useBag();
+  console.log(bag)
   const router = useRouter();
 
   const tabs = [
@@ -24,6 +22,16 @@ export default function MainPage() {
     "어쩌고",
     "추가 아이템",
   ];
+
+  const menuRefs = {
+    "추천메뉴": useRef(null),
+    "사이드": useRef(null),
+    "음료": useRef(null),
+    "주류": useRef(null),
+    "메뉴명": useRef(null),
+    "어쩌고": useRef(null),
+    "추가 아이템": useRef(null),
+  };
 
   const menuItems = [
     {
@@ -60,13 +68,6 @@ export default function MainPage() {
     },
   ];
 
-  // 탭에서 클릭했을 때 해당 메뉴로 이동
-  const menuRefs = tabs.reduce((acc, tab) => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    acc[tab] = useRef(null);
-    return acc;
-  }, {});
-
   const handleTabSelect = (index) => {
     const tab = tabs[index];
     const menuRef = menuRefs[tab];
@@ -76,6 +77,7 @@ export default function MainPage() {
       window.scrollTo({ top: offsetTop, behavior: "smooth" });
     }
   };
+
   const handleGoBag = () => {
     router.push('/bag');
   };
@@ -88,8 +90,12 @@ export default function MainPage() {
       <Line />
       <Menu title="사이드" items={sideMenus} ref={menuRefs["사이드"]} isLast />
       <div className="bottom__wrapper container">
-        <Button className={'main__button'} onClick={handleGoBag}>{nowPrice}원 확인하러가기</Button>
+        <Button className={'main__button'} onClick={handleGoBag} itemQuantity={bag.totalItems}>
+          {bag.totalPrice}원 확인하러가기
+        </Button>
       </div>
     </div>
   );
 }
+
+export default MainPage;

@@ -1,5 +1,6 @@
 import "@/assets/css/style.scss";
 import { Header } from "@/components/common/Header";
+import { BagProvider } from "@/context/BagContext";
 
 export const metadata = {
   title: "Qbit - 빠른 주문은 큐빗",
@@ -12,8 +13,10 @@ export default function RootLayout({ children }) {
     <html lang="ko">
       <link rel="icon" type="image/svg+xml" href="favicon.ico" />
       <body>
-        <Header />
-        {children}
+        <BagProvider>
+          <Header />
+          {children}
+        </BagProvider>
       </body>
     </html>
   );
