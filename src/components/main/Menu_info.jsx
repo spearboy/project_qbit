@@ -1,11 +1,11 @@
-// components/main/Menu.jsx
+// components/main/Menu_info.jsx
 import React from "react";
 import PropTypes from "prop-types";
 import MenuItem from "./Menu_item";
 
-const Menu = ({ title, items, isLast }) => {
+const Menu = React.forwardRef(({ title, items, isLast }, ref) => {
   return (
-    <div className={`container ${isLast ? "last-menu" : ""}`}>
+    <div className={`container ${isLast ? "last-menu" : ""}`} ref={ref}>
       <div className="menu">
         <h2 className="menu-title">{title}</h2>
         <div className="menu-items">
@@ -16,7 +16,7 @@ const Menu = ({ title, items, isLast }) => {
       </div>
     </div>
   );
-};
+});
 
 Menu.propTypes = {
   title: PropTypes.string.isRequired,
