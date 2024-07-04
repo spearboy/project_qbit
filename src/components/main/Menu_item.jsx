@@ -4,12 +4,12 @@ import PropTypes from "prop-types";
 import Image from "next/image";
 import Link from "next/link";
 
-const MenuItem = ({ label, name, price, imageUrl }) => {
+const MenuItem = ({ id, label, name, price, imageUrl }) => {
   const displayLabel = label === "soldout" ? "품절" : label;
 
   return (
     <Link
-      href={"/detail"}
+      href={`/detail?id=${id}`}
       className={`menuItem ${label === "soldout" ? "soldout" : ""}`}
     >
       <div className="menuItem_info">
@@ -40,9 +40,10 @@ const MenuItem = ({ label, name, price, imageUrl }) => {
 };
 
 MenuItem.propTypes = {
+  id: PropTypes.number.isRequired,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   imageUrl: PropTypes.string.isRequired,
 };
 

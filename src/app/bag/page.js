@@ -8,7 +8,7 @@ export default function Bag() {
             <div className="container">
                 <My_bag />
             </div>
-                <Line />
+            <Line />
             <div className="container">
                 <Your_bag />
             </div>

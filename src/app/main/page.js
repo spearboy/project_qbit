@@ -7,21 +7,11 @@ import Button from "@/components/common/Button";
 import { useRef } from "react";
 import { useRouter } from 'next/navigation';
 import { useBag } from '@/context/BagContext';
+import { tabs, menuItems, sideMenus } from '@/constants/datas';
 
 const MainPage = () => {
   const { bag } = useBag();
-  console.log(bag)
   const router = useRouter();
-
-  const tabs = [
-    "추천메뉴",
-    "사이드",
-    "음료",
-    "주류",
-    "메뉴명",
-    "어쩌고",
-    "추가 아이템",
-  ];
 
   const menuRefs = {
     "추천메뉴": useRef(null),
@@ -32,41 +22,6 @@ const MainPage = () => {
     "어쩌고": useRef(null),
     "추가 아이템": useRef(null),
   };
-
-  const menuItems = [
-    {
-      label: "BEST",
-      name: "큐빗 돈코츠 라멘",
-      price: "10,000",
-      imageUrl: "/img/menu01.png",
-    },
-    {
-      label: "NEW",
-      name: "병현 명청 덮밥",
-      price: "18,000",
-      imageUrl: "/img/menu02.png",
-    },
-    {
-      name: "큐빗 마제소바",
-      price: "9,000",
-      imageUrl: "/img/menu03.png",
-    },
-  ];
-
-  const sideMenus = [
-    {
-      label: "BEST",
-      name: "지나가 좋아하는 교자",
-      price: "6,000",
-      imageUrl: "/img/menu04.png",
-    },
-    {
-      label: "soldout",
-      name: "보미픽 고구마",
-      price: "6,000",
-      imageUrl: "/img/menu02.png",
-    },
-  ];
 
   const handleTabSelect = (index) => {
     const tab = tabs[index];
