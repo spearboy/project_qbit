@@ -36,7 +36,7 @@ export default function Detail() {
   return (
     <>
       <div className="Img">
-        <Image />
+        <Image alt="aa" />
       </div>
       <div className="container">
         <Detail_menu_top basePrice={basePrice} onPriceChange={handlePriceChange} />
