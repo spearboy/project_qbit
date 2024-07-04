@@ -41,7 +41,12 @@ export default function Detail() {
         <Detail_menu_bottom onOptionChange={handleOptionChange} />
       </div>
       <div className="bottom__wrapper container">
-        <Button className={'main__button'} itemQuantity={quantity} onClick={handleButtonClick}>
+        <Button 
+          className={'main__button'} 
+          itemQuantity={quantity} 
+          totalPrice={totalPrice} // totalPrice를 넘겨줌
+          onClick={handleButtonClick}
+        >
           {totalPrice}원 담기
         </Button>
       </div>
