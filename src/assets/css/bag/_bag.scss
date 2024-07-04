@@ -86,6 +86,7 @@
     min-height: calc(100vh - 316px);
 
     .detail_menu{
+        border-bottom: 1px solid var(--greyscale-color-100);
     h2{
         margin-top: 32px;
         font-size: 16px;
@@ -111,23 +112,24 @@
     .menu_plus{
         display: flex;
         justify-content: center;
-        align-items: center;
         gap: 4px;
         margin-top: 16px;
-        border-top: 1px solid var(--greyscale-color-100);
+        
 
         span{
             font-size: 14px;
             font-weight: 500;
             line-height: 20px;
-            text-align: center;
             color: var(--main-color-500);
-            margin-top: 16px;
         }
 
-        .icon-24-plus{
+        .plus {
             width: 16px;
             height: 16px;
+            background-image: url(../../images/icons/ic24_plus.svg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
     }
 }
