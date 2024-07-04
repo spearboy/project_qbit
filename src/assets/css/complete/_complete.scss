@@ -1,0 +1,44 @@
+.complete__wrapper {
+  width: 100%;
+  height: calc(100vh - 120px);
+  @include flex(column, center, center);
+
+  .complete__container {
+    @include flex(column, center);
+
+    .complete__icon {
+      .complete__animation {
+        width: 80px;
+        height: 80px;
+        background-color: var(--main-color-200);
+        border-radius: 50px;
+      }
+    }
+
+    .complete__span {
+      @include flex(column, center);
+
+      .complete__title {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: -0.02em;
+        line-height: 36px;
+        color: var(--greyscale-color-600);
+        margin-top: 32px;
+      }
+
+      .complete__desc1 {
+        margin-top: 8px;
+      }
+
+      .complete__desc1,
+      .complete__desc2 {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: -0.02em;
+        @include flex(column, center, center);
+      }
+    }
+  }
+}
