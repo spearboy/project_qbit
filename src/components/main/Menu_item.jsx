@@ -2,12 +2,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Image from "next/image";
+import Link from "next/link";
 
 const MenuItem = ({ label, name, price, imageUrl }) => {
   const displayLabel = label === "soldout" ? "품절" : label;
 
   return (
-    <div className={`menuItem ${label === "soldout" ? "soldout" : ""}`}>
+    <Link
+      href={"/detail"}
+      className={`menuItem ${label === "soldout" ? "soldout" : ""}`}
+    >
       <div className="menuItem_info">
         {label && (
           <div
@@ -31,7 +35,7 @@ const MenuItem = ({ label, name, price, imageUrl }) => {
           priority
         />
       </div>
-    </div>
+    </Link>
   );
 };
 

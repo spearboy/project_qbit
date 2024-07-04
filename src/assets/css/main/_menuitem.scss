@@ -39,7 +39,7 @@
     display: inline-block;
     width: 37px;
     letter-spacing: -0.02em;
-    @include flex(column, center, center, null, null);
+    @include flex(column, center, null, null, null);
 
     &.best {
       background-color: var(--main-color-500);

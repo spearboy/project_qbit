@@ -1,5 +1,4 @@
-import "@/assets/css/style.scss"
-import { Footer } from "@/components/common/Footer";
+import "@/assets/css/style.scss";
 import { Header } from "@/components/common/Header";
 
 export const metadata = {
@@ -15,8 +14,6 @@ export default function RootLayout({ children }) {
       <body>
         <Header />
         {children}
-
-        <Footer />
       </body>
     </html>
   );
