@@ -29,7 +29,7 @@ const My_bag = () => {
               <ul>
                 <li>{item.name}</li>
                 {item.options.map((option, index) => (
-                  <li key={index}>{option}</li>
+                  <li key={index}>{option.name} ({option.price}원)</li>
                 ))}
                 <li>{item.price * item.quantity}원</li>
               </ul>

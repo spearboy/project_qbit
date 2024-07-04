@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Detail_menu_top from "@/components/detail/Detail_menu_top";
 import Detail_menu_bottom from "@/components/detail/Detail_menu_bottom";
-import Image from "@/components/common/Image";
+import ImageComponent from "@/components/common/ImageComponent";
 import Line from "@/components/common/Line";
 import Button from '@/components/common/Button';
 import { useBag } from '@/context/BagContext';
@@ -47,18 +47,18 @@ export default function Detail() {
 
   const handleButtonClick = () => {
     const item = {
-      id: Date.now(), // 새로운 아이템의 경우 현재 시간을 ID로 사용
+      id: itemId || Date.now(),
       name: menuItem.name,
       price: menuItem.price + optionPrice,
       quantity,
       options
     };
-    if (itemId) {
-      updateItem(itemId, item); // 기존 아이템 업데이트
+    if (bag.items.some(bagItem => bagItem.id === itemId)) {
+      updateItem(itemId, item);
     } else {
-      addItem(item); // 새로운 아이템 추가
+      addItem(item);
     }
-    router.push('/main'); // 메인 페이지로 이동
+    router.push('/bag'); // 백 페이지로 이동
   };
 
   if (!menuItem) return <div>Loading...</div>;
@@ -66,7 +66,7 @@ export default function Detail() {
   return (
     <>
       <div className="Img">
-        <Image src={menuItem.imageUrl} alt={menuItem.name} />
+        <ImageComponent src={menuItem.imageUrl} alt={menuItem.name} />
       </div>
       <div className="container">
         <Detail_menu_top menuItem={menuItem} basePrice={menuItem.price} onPriceChange={handlePriceChange} />

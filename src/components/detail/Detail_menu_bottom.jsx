@@ -1,3 +1,4 @@
+"use client"
 import { useState } from 'react';
 import Essential from '../common/Essential';
 import Select from '../common/Select';

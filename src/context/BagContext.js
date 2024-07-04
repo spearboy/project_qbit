@@ -29,8 +29,17 @@ export const BagProvider = ({ children }) => {
     });
   };
 
+  const removeItem = (id) => {
+    setBag(prevBag => {
+      const items = prevBag.items.filter(item => item.id !== id);
+      const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
+      const totalPrice = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+      return { items, totalItems, totalPrice };
+    });
+  };
+
   return (
-    <BagContext.Provider value={{ bag, addItem, updateItem }}>
+    <BagContext.Provider value={{ bag, addItem, updateItem, removeItem }}>
       {children}
     </BagContext.Provider>
   );
