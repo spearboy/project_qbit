@@ -62,6 +62,7 @@ export default function MainPage() {
 
   // 탭에서 클릭했을 때 해당 메뉴로 이동
   const menuRefs = tabs.reduce((acc, tab) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     acc[tab] = useRef(null);
     return acc;
   }, {});

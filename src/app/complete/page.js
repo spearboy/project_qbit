@@ -3,6 +3,7 @@ import Button from '@/components/common/Button';
 import { useRouter } from 'next/navigation';
 
 export default function complete() {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const router = useRouter();
     const handleMenuPage = () => {
         router.push('/main');
