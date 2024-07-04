@@ -1,4 +1,4 @@
-// components/main/Menu_info.jsx
+"use client"
 import React from "react";
 import PropTypes from "prop-types";
 import MenuItem from "./Menu_item";
@@ -17,6 +17,9 @@ const Menu = React.forwardRef(({ title, items, isLast }, ref) => {
     </div>
   );
 });
+
+// display name 추가
+Menu.displayName = 'Menu';
 
 Menu.propTypes = {
   title: PropTypes.string.isRequired,
