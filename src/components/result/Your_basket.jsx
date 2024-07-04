@@ -3,10 +3,6 @@ import React from 'react'
 const Your_basket = () => {
   return (
       <div className='youmenu'>
-        <div className='detail_menu'  style={{ display: 'none' }}>
-          <h2>멤버가 담은 메뉴</h2>
-          <p>담은 메뉴가 없어요</p> 
-        </div> 
         <div className='detail_menuplus'>
             <ul>
               <li>병현 멍청 덮밥</li>
