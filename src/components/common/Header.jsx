@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
+import { useBag } from '@/context/BagContext';
 
 export const Header = () => {
   const pathname = usePathname();
+  const { bag } = useBag();
 
   return (
     <div className="top__header">
@@ -31,6 +33,11 @@ export const Header = () => {
             </Link>
             <Link href="/bag">
               <i className="icon-24-bag"></i>
+              {bag.totalItems > 0 && (
+                <span className="bag_quantity">
+                  <span>{bag.totalItems}</span>
+                </span>
+              )}
             </Link>
           </>
         )}
