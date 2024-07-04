@@ -1,10 +1,10 @@
-// pages/main/page.js
 import Store_info from "@/components/main/Store_info";
 import TabMenu from "@/components/main/Tab_menu";
 import Menu from "@/components/main/Menu_info";
 import Line from "@/components/common/Line";
 
 import "@/assets/css/style.scss";
+import Button from "@/components/common/Button";
 
 export default function MainPage() {
   const tabs = [
@@ -52,12 +52,18 @@ export default function MainPage() {
   ];
 
   return (
-    <div className="main">
-      <Store_info name="큐빗 라멘 안산중앙점" viewers={3} tableNumber="02" />
-      <TabMenu tabs={tabs} />
-      <Menu title="추천 메뉴" items={menuItems} />
-      <Line />
-      <Menu title="사이드" items={sideMenus} isLast />
-    </div>
+    <>
+      <div className="main">
+        <Store_info name="큐빗 라멘 안산중앙점" viewers={3} tableNumber="02" />
+        <TabMenu tabs={tabs} />
+        <Menu title="추천 메뉴" items={menuItems} />
+        <Line />
+        <Menu title="사이드" items={sideMenus} isLast />
+      </div>
+
+      <div className="bottom__wrapper container" >
+        <Button className={'main__button'}>주문하기</Button>
+      </div>
+    </>
   );
 }

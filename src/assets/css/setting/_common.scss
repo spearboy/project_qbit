@@ -23,6 +23,26 @@ input[type=checkbox] {
         cursor: default !important;
     }
 }
+input[type=radio] {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    outline: none;
+    border: 0px;
+    display: block;
+    background-image: url('../../images/icons/check_default.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    &:checked {
+        background-image: url('../../images/icons/check_selected.svg');
+    }
+    &:disabled {
+        background-image: url('../../images/icons/check_disabled.svg') !important;
+        cursor: default !important;
+    }
+}
 .button__count__box {
     position: relative;
     width: 30px;
