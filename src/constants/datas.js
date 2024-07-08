@@ -51,7 +51,7 @@ export const tabs = [
     {
       id: 2,
       label: "NEW",
-      name: "병현 명청 덮밥",
+      name: "병현 멍청 덮밥",
       price: 18000,
       imageUrl: "/img/menu02.png",
       desc: "큐빗 라멘에서 선보이는 신메뉴 가츠동입니다! 제주산 흑돼지 특등심을 수비드 조리 한 후 빠르게 튀겨냈습니다.",
