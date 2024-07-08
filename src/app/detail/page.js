@@ -1,32 +1,41 @@
+// src/app/detail/page.js
+import React, { useEffect, useState } from 'react';
 import Detail_menu_top from "@/components/detail/Detail_menu_top";
 import Detail_menu_bottom from "@/components/detail/Detail_menu_bottom";
 import ImageComponent from "@/components/common/ImageComponent";
 import Line from "@/components/common/Line";
 import Button from '@/components/common/Button';
 import { useBag } from '@/context/BagContext';
-import { menuItems, sideMenus } from '@/constants/datas';
 
-const getMenuById = (id) => {
-  return [...menuItems, ...sideMenus].find(item => item.id === id);
-}
-
-export default function Detail({ menuItem, initialPrice }) {
-  const [totalPrice, setTotalPrice] = useState(initialPrice);
+export default function Detail() {
+  const [menuItem, setMenuItem] = useState(null);
+  const [totalPrice, setTotalPrice] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [optionPrice, setOptionPrice] = useState(0);
   const [options, setOptions] = useState([]);
   const { addItem, updateItem, bag } = useBag();
 
+  useEffect(() => {
+    const itemId = new URLSearchParams(window.location.search).get('id');
+    fetch(`/api/menu/${itemId}`)
+      .then(response => response.json())
+      .then(data => {
+        setMenuItem(data);
+        setTotalPrice(data.price);
+      })
+      .catch(error => console.error('Failed to load menu item:', error));
+  }, []);
+
   const handlePriceChange = (newTotalPrice, newQuantity) => {
     setQuantity(newQuantity);
-    setTotalPrice((initialPrice + optionPrice) * newQuantity);
+    setTotalPrice((menuItem.price + optionPrice) * newQuantity);
   };
 
   const handleOptionChange = (mainOptionPrice, subOptionsTotalPrice, selectedOptions) => {
     const newOptionPrice = mainOptionPrice + subOptionsTotalPrice;
     setOptionPrice(newOptionPrice);
     setOptions(selectedOptions);
-    setTotalPrice((initialPrice + newOptionPrice) * quantity);
+    setTotalPrice((menuItem.price + newOptionPrice) * quantity);
   };
 
   const handleButtonClick = () => {
@@ -42,7 +51,7 @@ export default function Detail({ menuItem, initialPrice }) {
     } else {
       addItem(item);
     }
-    // Assuming we have some routing method to handle navigation
+    // Navigation to bag could be handled here
   };
 
   if (!menuItem) return <div>Loading...</div>;
@@ -60,21 +69,10 @@ export default function Detail({ menuItem, initialPrice }) {
         <Detail_menu_bottom menuItem={menuItem} onOptionChange={handleOptionChange} />
       </div>
       <div className="bottom__wrapper container">
-        <Button className={'main__button'} itemQuantity={quantity} onClick={handleButtonClick}>
+        <Button className={'main__button'} onClick={() => handleButtonClick()}>
           {totalPrice}원 담기
         </Button>
       </div>
     </>
   );
-}
-
-export async function getServerSideProps(context) {
-  const itemId = parseInt(context.params.id);
-  const menuItem = getMenuById(itemId);
-  return {
-    props: {
-      menuItem,
-      initialPrice: menuItem ? menuItem.price : 0
-    }
-  };
 }
