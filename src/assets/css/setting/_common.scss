@@ -1,3 +1,15 @@
+// --------------------------------------------
+.randing_page_wrapper  {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--main-color-500);
+}
+
+// --------------------------------------------
+
 .container {
     width: 100%;
     padding: 0px 24px;
