@@ -55,21 +55,21 @@ img{
                 gap: 4px;
                 li{
                     &:nth-child(1){
-                        font-size: 14px;
+                        font-size: 16px;
                         font-weight: 500;
                         line-height: 20px;
 
                     }
 
                     &:nth-child(2){
-                        font-size: 12px;
+                        font-size: 14px;
                         font-weight: normal;
                         line-height: 18px;
                         color: var(--greyscale-color-400);
                     }
 
                     &.bold{
-                        font-size: 14px;
+                        font-size: 16px;
                         font-weight: bold;
                         line-height: 22px;
                         color: var(--greyscale-color-500);
@@ -98,20 +98,20 @@ img{
         ul{
             li{
                 &:nth-child(1){
-                    font-size: 14px;
+                    font-size: 16px; 
                     font-weight: 500;
                     line-height: 20px;
                 }
 
                 &:nth-child(2){
-                    font-size: 12px;
+                    font-size: 14px;
                     font-weight: normal;
                     line-height: 18px;
                     color: var(--greyscale-color-400);
                 }
 
                 &.bold{
-                    font-size: 14px;
+                    font-size: 16px;
                     font-weight: bold;
                     line-height: 22px;
                     color: var(--greyscale-color-500);
