@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import io from "socket.io-client";
 
-const StoreInfo = ({ name, viewers, tableNumber }) => {
+const StoreInfo = ({ name, tableNumber }) => {
+  const [viewers, setViewers] = useState(0);
+
+  useEffect(() => {
+    const socket = io();
+
+    socket.on("viewers", (viewersCount) => {
+      setViewers(viewersCount);
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
   return (
     <div className="container">
       <div className="store_info">
@@ -21,7 +36,6 @@ const StoreInfo = ({ name, viewers, tableNumber }) => {
 // PropTypes를 사용하여 props의 유형을 정의
 StoreInfo.propTypes = {
   name: PropTypes.string.isRequired, // name은 문자열이며 필수
-  viewers: PropTypes.number.isRequired, // viewers는 숫자이며 필수
   tableNumber: PropTypes.string.isRequired, // tableNumber는 문자열이며 필수
 };
 
