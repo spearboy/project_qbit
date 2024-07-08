@@ -1,11 +1,18 @@
-// src/app/detail/page.js
-import React, { useEffect, useState } from 'react';
+"use client"
+
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Detail_menu_top from "@/components/detail/Detail_menu_top";
 import Detail_menu_bottom from "@/components/detail/Detail_menu_bottom";
 import ImageComponent from "@/components/common/ImageComponent";
 import Line from "@/components/common/Line";
 import Button from '@/components/common/Button';
 import { useBag } from '@/context/BagContext';
+import { menuItems, sideMenus } from '@/constants/datas';
+
+const getMenuById = (id) => {
+  return [...menuItems, ...sideMenus].find(item => item.id === id);
+}
 
 export default function Detail() {
   const [menuItem, setMenuItem] = useState(null);
@@ -14,17 +21,17 @@ export default function Detail() {
   const [optionPrice, setOptionPrice] = useState(0);
   const [options, setOptions] = useState([]);
   const { addItem, updateItem, bag } = useBag();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const itemId = parseInt(searchParams.get('id'));
 
   useEffect(() => {
-    const itemId = new URLSearchParams(window.location.search).get('id');
-    fetch(`/api/menu/${itemId}`)
-      .then(response => response.json())
-      .then(data => {
-        setMenuItem(data);
-        setTotalPrice(data.price);
-      })
-      .catch(error => console.error('Failed to load menu item:', error));
-  }, []);
+    const item = getMenuById(itemId);
+    if (item) {
+      setMenuItem(item);
+      setTotalPrice(item.price);
+    }
+  }, [itemId]);
 
   const handlePriceChange = (newTotalPrice, newQuantity) => {
     setQuantity(newQuantity);
@@ -40,18 +47,18 @@ export default function Detail() {
 
   const handleButtonClick = () => {
     const item = {
-      id: menuItem.id || Date.now(),
+      id: itemId || Date.now(),
       name: menuItem.name,
       price: menuItem.price + optionPrice,
       quantity,
       options
     };
-    if (bag.items.some(bagItem => bagItem.id === menuItem.id)) {
-      updateItem(menuItem.id, item);
+    if (bag.items.some(bagItem => bagItem.id === itemId)) {
+      updateItem(itemId, item);
     } else {
       addItem(item);
     }
-    // Navigation to bag could be handled here
+    router.push('/bag'); // 백 페이지로 이동
   };
 
   if (!menuItem) return <div>Loading...</div>;
@@ -66,10 +73,10 @@ export default function Detail() {
       </div>
       <Line />
       <div className="container">
-        <Detail_menu_bottom menuItem={menuItem} onOptionChange={handleOptionChange} />
+        <Detail_menu_bottom menuItem={menuItem} onOptionChange={(mainPrice, subPrice) => handleOptionChange(mainPrice, subPrice, options)} />
       </div>
       <div className="bottom__wrapper container">
-        <Button className={'main__button'} onClick={() => handleButtonClick()}>
+        <Button className={'main__button'} itemQuantity={quantity} onClick={handleButtonClick}>
           {totalPrice}원 담기
         </Button>
       </div>
