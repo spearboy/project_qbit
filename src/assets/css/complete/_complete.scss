@@ -8,9 +8,8 @@
 
     .complete__icon {
       .complete__animation {
-        width: 80px;
-        height: 80px;
-        background-color: var(--main-color-200);
+        width: 100%;
+        height: 100%;
         border-radius: 50px;
       }
     }
@@ -24,7 +23,7 @@
         letter-spacing: -0.02em;
         line-height: 36px;
         color: var(--greyscale-color-600);
-        margin-top: 32px;
+        margin-top: 10px;
       }
 
       .complete__desc1 {
