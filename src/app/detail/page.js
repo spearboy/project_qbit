@@ -1,7 +1,3 @@
-"use client";
-
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import Detail_menu_top from "@/components/detail/Detail_menu_top";
 import Detail_menu_bottom from "@/components/detail/Detail_menu_bottom";
 import ImageComponent from "@/components/common/ImageComponent";
@@ -14,54 +10,39 @@ const getMenuById = (id) => {
   return [...menuItems, ...sideMenus].find(item => item.id === id);
 }
 
-export default function Detail() {
-  const [menuItem, setMenuItem] = useState(null);
-  const [totalPrice, setTotalPrice] = useState(0);
+export default function Detail({ menuItem, initialPrice }) {
+  const [totalPrice, setTotalPrice] = useState(initialPrice);
   const [quantity, setQuantity] = useState(1);
   const [optionPrice, setOptionPrice] = useState(0);
   const [options, setOptions] = useState([]);
   const { addItem, updateItem, bag } = useBag();
-  const router = useRouter();
-
-  useEffect(() => {
-    // 클라이언트 사이드에서만 실행되도록 보장
-    if (typeof window !== 'undefined' && router.isReady) {
-      const itemId = parseInt(router.query.id);
-      const item = getMenuById(itemId);
-      if (item) {
-        setMenuItem(item);
-        setTotalPrice(item.price + optionPrice * quantity);
-      }
-    }
-  }, [router.isReady, router.query]);
 
   const handlePriceChange = (newTotalPrice, newQuantity) => {
     setQuantity(newQuantity);
-    setTotalPrice((menuItem.price + optionPrice) * newQuantity);
+    setTotalPrice((initialPrice + optionPrice) * newQuantity);
   };
 
   const handleOptionChange = (mainOptionPrice, subOptionsTotalPrice, selectedOptions) => {
     const newOptionPrice = mainOptionPrice + subOptionsTotalPrice;
     setOptionPrice(newOptionPrice);
-    setOptions(selectedOptions);  // 옵션 배열 업데이트
-    setTotalPrice((menuItem.price + newOptionPrice) * quantity);
+    setOptions(selectedOptions);
+    setTotalPrice((initialPrice + newOptionPrice) * quantity);
   };
 
   const handleButtonClick = () => {
-    const itemId = parseInt(router.query.id);  // 버튼 클릭 시 다시 id 확인
     const item = {
-      id: itemId || Date.now(),
+      id: menuItem.id || Date.now(),
       name: menuItem.name,
       price: menuItem.price + optionPrice,
       quantity,
       options
     };
-    if (bag.items.some(bagItem => bagItem.id === itemId)) {
-      updateItem(itemId, item);
+    if (bag.items.some(bagItem => bagItem.id === menuItem.id)) {
+      updateItem(menuItem.id, item);
     } else {
       addItem(item);
     }
-    router.push('/bag');
+    // Assuming we have some routing method to handle navigation
   };
 
   if (!menuItem) return <div>Loading...</div>;
@@ -85,4 +66,15 @@ export default function Detail() {
       </div>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const itemId = parseInt(context.params.id);
+  const menuItem = getMenuById(itemId);
+  return {
+    props: {
+      menuItem,
+      initialPrice: menuItem ? menuItem.price : 0
+    }
+  };
 }
