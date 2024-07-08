@@ -1,7 +1,5 @@
-"use client";
-
-import { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Detail_menu_top from "@/components/detail/Detail_menu_top";
 import Detail_menu_bottom from "@/components/detail/Detail_menu_bottom";
 import ImageComponent from "@/components/common/ImageComponent";
@@ -22,8 +20,7 @@ export default function Detail() {
   const [options, setOptions] = useState([]);
   const { addItem, updateItem, bag } = useBag();
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const itemId = parseInt(searchParams.get('id') || 0);
+  const itemId = parseInt(router.query.id);  // URL 쿼리에서 'id' 값을 가져옴
 
   useEffect(() => {
     const item = getMenuById(itemId);
@@ -58,7 +55,7 @@ export default function Detail() {
     } else {
       addItem(item);
     }
-    router.push('/bag'); // 백 페이지로 이동
+    router.push('/bag');
   };
 
   if (!menuItem) return <div>Loading...</div>;
