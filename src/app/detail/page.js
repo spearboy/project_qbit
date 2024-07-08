@@ -22,15 +22,17 @@ export default function Detail() {
   const [options, setOptions] = useState([]);
   const { addItem, updateItem, bag } = useBag();
   const router = useRouter();
-  const itemId = parseInt(router.query.id);  // URL 쿼리에서 'id' 값을 가져옴
 
   useEffect(() => {
-    const item = getMenuById(itemId);
-    if (item) {
-      setMenuItem(item);
-      setTotalPrice(item.price);
+    if (router.isReady) {
+      const itemId = parseInt(router.query.id);  // URL 쿼리에서 'id' 값을 가져옴
+      const item = getMenuById(itemId);
+      if (item) {
+        setMenuItem(item);
+        setTotalPrice(item.price);
+      }
     }
-  }, [itemId]);
+  }, [router.isReady, router.query]);
 
   const handlePriceChange = (newTotalPrice, newQuantity) => {
     setQuantity(newQuantity);
@@ -40,11 +42,12 @@ export default function Detail() {
   const handleOptionChange = (mainOptionPrice, subOptionsTotalPrice, selectedOptions) => {
     const newOptionPrice = mainOptionPrice + subOptionsTotalPrice;
     setOptionPrice(newOptionPrice);
-    setOptions(selectedOptions);
+    setOptions(prevOptions => [...prevOptions, ...selectedOptions]);  // 기존 옵션에 추가
     setTotalPrice((menuItem.price + newOptionPrice) * quantity);
   };
 
   const handleButtonClick = () => {
+    const itemId = parseInt(router.query.id);  // 버튼 클릭 시 다시 id 확인
     const item = {
       id: itemId || Date.now(),
       name: menuItem.name,
