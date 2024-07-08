@@ -24,18 +24,45 @@ export default function Detail() {
   const router = useRouter();
 
   useEffect(() => {
+    // 클라이언트 사이드에서만 실행되도록 보장
     if (typeof window !== 'undefined' && router.isReady) {
-      const itemId = parseInt(router.query.id);  // URL 쿼리에서 'id' 값을 가져옴
+      const itemId = parseInt(router.query.id);
       const item = getMenuById(itemId);
       if (item) {
         setMenuItem(item);
-        setTotalPrice(item.price);
+        setTotalPrice(item.price + optionPrice * quantity);
       }
     }
   }, [router.isReady, router.query]);
 
-  // 이벤트 핸들러 및 다른 로직들
-  // 생략...
+  const handlePriceChange = (newTotalPrice, newQuantity) => {
+    setQuantity(newQuantity);
+    setTotalPrice((menuItem.price + optionPrice) * newQuantity);
+  };
+
+  const handleOptionChange = (mainOptionPrice, subOptionsTotalPrice, selectedOptions) => {
+    const newOptionPrice = mainOptionPrice + subOptionsTotalPrice;
+    setOptionPrice(newOptionPrice);
+    setOptions(selectedOptions);  // 옵션 배열 업데이트
+    setTotalPrice((menuItem.price + newOptionPrice) * quantity);
+  };
+
+  const handleButtonClick = () => {
+    const itemId = parseInt(router.query.id);  // 버튼 클릭 시 다시 id 확인
+    const item = {
+      id: itemId || Date.now(),
+      name: menuItem.name,
+      price: menuItem.price + optionPrice,
+      quantity,
+      options
+    };
+    if (bag.items.some(bagItem => bagItem.id === itemId)) {
+      updateItem(itemId, item);
+    } else {
+      addItem(item);
+    }
+    router.push('/bag');
+  };
 
   if (!menuItem) return <div>Loading...</div>;
 
