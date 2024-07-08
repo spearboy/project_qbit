@@ -7,10 +7,18 @@ import Link from "next/link";
 const MenuItem = ({ id, label, name, price, imageUrl }) => {
   const displayLabel = label === "soldout" ? "품절" : label;
 
+  //라벨이 soldout 일시 클릭이 안 되도록 설정
+  const handleClick = (event) => {
+    if (label === "soldout") {
+      event.preventDefault();
+    }
+  };
+
   return (
     <Link
       href={`/detail?id=${id}`}
       className={`menuItem ${label === "soldout" ? "soldout" : ""}`}
+      onClick={handleClick}
     >
       <div className="menuItem_info">
         {label && (
