@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -23,7 +23,7 @@ export default function Detail() {
   const { addItem, updateItem, bag } = useBag();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const itemId = parseInt(searchParams.get('id'));
+  const itemId = parseInt(searchParams.get('id') || 0);
 
   useEffect(() => {
     const item = getMenuById(itemId);
@@ -73,7 +73,7 @@ export default function Detail() {
       </div>
       <Line />
       <div className="container">
-        <Detail_menu_bottom menuItem={menuItem} onOptionChange={(mainPrice, subPrice) => handleOptionChange(mainPrice, subPrice, options)} />
+        <Detail_menu_bottom menuItem={menuItem} onOptionChange={handleOptionChange} />
       </div>
       <div className="bottom__wrapper container">
         <Button className={'main__button'} itemQuantity={quantity} onClick={handleButtonClick}>
