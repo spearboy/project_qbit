@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Detail_menu_top from "@/components/detail/Detail_menu_top";
