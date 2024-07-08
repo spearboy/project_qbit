@@ -26,10 +26,12 @@ export default function Detail() {
   const itemId = parseInt(searchParams.get('id'));
 
   useEffect(() => {
-    const item = getMenuById(itemId);
-    if (item) {
-      setMenuItem(item);
-      setTotalPrice(item.price);
+    if (itemId) {
+      const item = getMenuById(itemId);
+      if (item) {
+        setMenuItem(item);
+        setTotalPrice(item.price);
+      }
     }
   }, [itemId]);
 
