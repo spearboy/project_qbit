@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Detail_menu_top from "@/components/detail/Detail_menu_top";
 import Detail_menu_bottom from "@/components/detail/Detail_menu_bottom";
@@ -14,7 +14,7 @@ const getMenuById = (id) => {
   return [...menuItems, ...sideMenus].find(item => item.id === id);
 }
 
-export default function Detail() {
+function DetailContent() {
   const [menuItem, setMenuItem] = useState(null);
   const [totalPrice, setTotalPrice] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -26,12 +26,10 @@ export default function Detail() {
   const itemId = parseInt(searchParams.get('id'));
 
   useEffect(() => {
-    if (itemId) {
-      const item = getMenuById(itemId);
-      if (item) {
-        setMenuItem(item);
-        setTotalPrice(item.price);
-      }
+    const item = getMenuById(itemId);
+    if (item) {
+      setMenuItem(item);
+      setTotalPrice(item.price);
     }
   }, [itemId]);
 
@@ -83,5 +81,13 @@ export default function Detail() {
         </Button>
       </div>
     </>
+  );
+}
+
+export default function Detail() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DetailContent />
+    </Suspense>
   );
 }
