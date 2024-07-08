@@ -1,5 +1,4 @@
 export const tabs = [
-<<<<<<< HEAD
   "추천메뉴",
   "사이드",
   "음료",
@@ -25,51 +24,6 @@ export const menuItems = [
         { name: "기본", price: 0 },
         { name: "곱빼기(면2배, 차슈 2개 추가)", price: 8000 },
       ],
-=======
-    "추천메뉴",
-    "사이드"
-  ];
-  
-  export const menuItems = [
-    {
-      id: 1,
-      label: "BEST",
-      name: "큐빗 돈코츠 라멘",
-      price: 10000,
-      imageUrl: "/img/menu01.png",
-      desc: "큐빗 라멘의 근본 24시간동안 우려낸 돈코츠 라멘입니다! 진한 맛과 정성을 더해 준비했습니다.",
-      optionFix: {
-        type: "사이즈",
-        maxSelect: '1',
-        label: "필수",
-        text: [
-          { name: "기본", price: 0 },
-          { name: "곱빼기(면2배, 차슈 2개 추가)", price: 8000 }
-        ]
-      },
-      option: {
-        type: "토핑 추가",
-        maxSelect: '0',
-        label: "선택",
-        text: [
-          { name: "차슈", price: 2000 },
-          { name: "멘마", price: 1000 },
-          { name: "온센타마고", price: 3000 },
-          { name: "김", price: 500 }
-        ]
-      },
-      option: {
-        type: "음료",
-        maxSelect: '0',
-        label: "선택",
-        text: [
-          { name: "코카콜라", price: 2000 },
-          { name: "스프라이트", price: 2000 },
-          { name: "환타", price: 2000 },
-          { name: "닥터페퍼", price: 2000 }
-        ]
-      }
->>>>>>> 6b66ac6a74065ae392fc0ccb82ba43962a28b02a
     },
     option: {
       type: "토핑 추가",
