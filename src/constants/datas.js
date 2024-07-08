@@ -1,12 +1,4 @@
-export const tabs = [
-  "추천메뉴",
-  "사이드",
-  "음료",
-  "주류",
-  "메뉴명",
-  "어쩌고",
-  "추가 아이템",
-];
+export const tabs = ["추천메뉴", "사이드"];
 
 export const menuItems = [
   {

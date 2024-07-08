@@ -20,4 +20,6 @@ npm i swiper
 npm install react-slick
 npm install slick-carousel 설치 필요
 (탭 메뉴 슬라이드 할 때 필요한 라이브러리)
+
+sudo npm install socket.io socket.io-client
 ```
