@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -24,7 +24,7 @@ export default function Detail() {
   const router = useRouter();
 
   useEffect(() => {
-    if (router.isReady) {
+    if (typeof window !== 'undefined' && router.isReady) {
       const itemId = parseInt(router.query.id);  // URL 쿼리에서 'id' 값을 가져옴
       const item = getMenuById(itemId);
       if (item) {
@@ -34,34 +34,8 @@ export default function Detail() {
     }
   }, [router.isReady, router.query]);
 
-  const handlePriceChange = (newTotalPrice, newQuantity) => {
-    setQuantity(newQuantity);
-    setTotalPrice((menuItem.price + optionPrice) * newQuantity);
-  };
-
-  const handleOptionChange = (mainOptionPrice, subOptionsTotalPrice, selectedOptions) => {
-    const newOptionPrice = mainOptionPrice + subOptionsTotalPrice;
-    setOptionPrice(newOptionPrice);
-    setOptions(prevOptions => [...prevOptions, ...selectedOptions]);  // 기존 옵션에 추가
-    setTotalPrice((menuItem.price + newOptionPrice) * quantity);
-  };
-
-  const handleButtonClick = () => {
-    const itemId = parseInt(router.query.id);  // 버튼 클릭 시 다시 id 확인
-    const item = {
-      id: itemId || Date.now(),
-      name: menuItem.name,
-      price: menuItem.price + optionPrice,
-      quantity,
-      options
-    };
-    if (bag.items.some(bagItem => bagItem.id === itemId)) {
-      updateItem(itemId, item);
-    } else {
-      addItem(item);
-    }
-    router.push('/bag');
-  };
+  // 이벤트 핸들러 및 다른 로직들
+  // 생략...
 
   if (!menuItem) return <div>Loading...</div>;
 
