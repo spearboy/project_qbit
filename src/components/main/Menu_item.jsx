@@ -39,7 +39,7 @@ const MenuItem = ({ id, label, name, price, imageUrl }) => {
           alt={name}
           width={80}
           height={80}
-          quality={75}
+          quality={100}
           priority
         />
       </div>

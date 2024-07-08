@@ -1,4 +1,4 @@
-// components/main/Tab_menu.jsx
+// components/main/TabMenu.jsx
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
@@ -14,7 +14,7 @@ const TabMenu = ({ tabs, onTabSelect }) => {
     }
   };
 
-  useEffect(() => {
+  const updateHighlight = () => {
     const selectedTabElement = tabRefs.current[selectedTab];
     if (selectedTabElement) {
       const offsetLeft = selectedTabElement.offsetLeft;
@@ -27,7 +27,15 @@ const TabMenu = ({ tabs, onTabSelect }) => {
         highlightElement.style.width = `${offsetWidth}px`;
       }
     }
-  }, [selectedTab]);
+  };
+
+  useEffect(() => {
+    updateHighlight();
+    window.addEventListener("resize", updateHighlight); // 창 크기 변경 이벤트 리스너 추가
+    return () => {
+      window.removeEventListener("resize", updateHighlight); // 컴포넌트 언마운트 시 이벤트 리스너 제거
+    };
+  }, [selectedTab, tabs]);
 
   return (
     <div className="container">
