@@ -1,0 +1,101 @@
+.sidebar{
+    width: 348px;
+    height: 100vh;
+    // background-color: #000;
+
+    .my_store{
+        .my_store_title{
+            display: flex;
+            margin-top: 75px;
+            padding: 0px 24px;
+            justify-content: space-between;
+            width: 348px;
+            height: 56px;
+            align-items: center;
+
+            h2{
+                width: 268px;  
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 26px;
+            }
+        }
+
+        .my_store_info{
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            // padding: 0px 24px 0px 36px;
+
+            .dasiboard{
+                padding: 12px 24px 12px 36px;
+                background-color: var(--main-color-100);
+                color: var( --main-color-500);
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 24px;
+            }
+
+            .store_information{
+                padding: 12px 24px 12px 36px;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 24px;
+                color: var(--greyscale-color-500);
+            }
+        }
+    }
+
+    .sales_management{
+        .sales_management_title{
+            display: flex;
+            padding: 15px 24px;
+            justify-content: space-between;
+            
+            h2{
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 26px;
+            }
+        }
+
+        .sales_management_info{
+            .menu_statistics,
+            .date_statistics{
+                padding: 12px 24px 12px 36px;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 24px;
+                color: var(--greyscale-color-500);
+            }
+        }
+    }
+
+    .menu_management{
+        padding: 15px 24px;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 26px;
+    }
+
+    .table_management{
+        .table_management_title{
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 26px;
+        }
+        .table_management_info{
+            .check_QR,
+            .edit{
+                padding: 12px 24px 12px 36px;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 24px;
+                color: var(--greyscale-color-500);
+            }
+        }
+    }
+}
