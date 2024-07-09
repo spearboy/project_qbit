@@ -1,5 +1,4 @@
-"use client"
-
+"use client";
 import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Detail_menu_top from "@/components/detail/Detail_menu_top";
@@ -58,7 +57,7 @@ function DetailContent() {
     } else {
       addItem(item);
     }
-    router.push('/bag'); // 백 페이지로 이동
+    router.push('/bag');
   };
 
   if (!menuItem) return <div>Loading...</div>;

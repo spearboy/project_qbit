@@ -10,7 +10,7 @@ import { useBag } from '@/context/BagContext';
 import { tabs, menuItems, sideMenus } from '@/constants/datas';
 
 const MainPage = () => {
-  const { bag } = useBag();
+  const { getTotalPrice, getTotalItems } = useBag();
   const router = useRouter();
 
   const menuRefs = {
@@ -39,14 +39,14 @@ const MainPage = () => {
 
   return (
     <div className="main">
-      <Store_info name="큐빗 라멘 안산중앙점" viewers={3} tableNumber="02" />
+      <Store_info name="큐빗 라멘 안산중앙점" tableNumber="02" />
       <TabMenu tabs={tabs} onTabSelect={handleTabSelect} />
       <Menu title="추천메뉴" items={menuItems} ref={menuRefs["추천메뉴"]} />
       <Line />
       <Menu title="사이드" items={sideMenus} ref={menuRefs["사이드"]} isLast />
       <div className="bottom__wrapper container">
-        <Button className={'main__button'} onClick={handleGoBag} itemQuantity={bag.totalItems}>
-          {bag.totalPrice}원 확인하러가기
+        <Button className={'main__button'} onClick={handleGoBag} itemQuantity={getTotalItems()}>
+          {getTotalPrice()}원 확인하러가기
         </Button>
       </div>
     </div>
