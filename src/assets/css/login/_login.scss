@@ -3,11 +3,13 @@
   //   height: 100vh;
   height: calc(100vh - 50px);
   @include flex(column, center, center);
+  overflow-y: scroll; // 세로 스크롤만 허용
 
   .login__container {
     width: 480px;
     height: 100vh;
     @include flex(column, center);
+    margin-top: 80px;
   }
 
   .login__logo_wrap {
@@ -46,6 +48,7 @@
           margin-top: 8px;
 
           &::placeholder {
+            @include flex(row, center, center);
             font-size: 16px;
             color: var(--system-color-grey);
             line-height: 24px;
@@ -123,6 +126,12 @@
     border-radius: 50px;
     background-color: #03cf5d;
     margin-right: 32px;
+    position: relative;
+
+    img {
+      position: absolute;
+      border-radius: 50px;
+    }
   }
 
   .kakao__login {
@@ -173,5 +182,10 @@
       opacity: 1;
       bottom: 0;
     }
+  }
+
+  // 웹킷 브라우저에서 스크롤바 숨기기
+  &::-webkit-scrollbar {
+    display: none;
   }
 }

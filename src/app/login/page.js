@@ -1,5 +1,5 @@
+import Image from "next/image"; //이미지 최적화
 import Button from "@/components/common/Button";
-import Select from "@/components/common/Select";
 
 const login = () => {
   return (
@@ -8,20 +8,22 @@ const login = () => {
         <div className="login__container">
           <div className="login__logo_wrap">
             <div className="login__logo">
-              <img src="/img/logo.png"></img>
+              <Image
+                src="/img/logo.png"
+                alt="로고"
+                layout="intrinsic"
+                width={150}
+                height={50}
+              />
             </div>
           </div>
           <form>
             <div className="login__info">
               <div className="id__wrap">
                 <label className="login_id">아이디</label>
-                <input type="text" placeholder="아이디를 입력해주세요"></input>
-
+                <input type="text" placeholder="아이디를 입력해주세요" />
                 <label className="login_password">비밀번호</label>
-                <input
-                  type="password"
-                  placeholder="비밀번호를 입력해주세요"
-                ></input>
+                <input type="password" placeholder="비밀번호를 입력해주세요" />
               </div>
               {/* 아이디 비밀번호 창 */}
               <div className="login__btn">
@@ -31,20 +33,34 @@ const login = () => {
               </div>
               {/* 버튼 창 */}
               <div className="id__save">
-                <input type="checkbox"></input>
+                <input type="checkbox" />
                 <p>아이디 저장</p>
               </div>
               <div className="auto__login">
-                <input type="checkbox"></input>
+                <input type="checkbox" />
                 <p>자동 로그인</p>
               </div>
             </div>
           </form>
           <div className="social__login">
             <ul>
-              <li className="naver__login"></li>
+              <li className="naver__login">
+                <Image
+                  src="/img/naver.svg"
+                  alt="네이버 로그인"
+                  layout="intrinsic"
+                  width={50}
+                  height={50}
+                />
+              </li>
               <li className="kakao__login">
-                <img src="/img/kakao.svg"></img>
+                <Image
+                  src="/img/kakao.svg"
+                  alt="카카오 로그인"
+                  layout="intrinsic"
+                  width={50}
+                  height={50}
+                />
               </li>
             </ul>
           </div>
