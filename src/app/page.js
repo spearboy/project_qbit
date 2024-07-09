@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function Home() {
   const router = useRouter();
   setTimeout(() => {
-    // router.push("/main");
+    router.push("/main");
   }, 3000);
 
   return (
