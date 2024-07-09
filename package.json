@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@svgr/webpack": "^8.1.0",
     "gsap": "^3.12.5",
     "next": "14.2.4",
     "react": "^18",
@@ -24,6 +23,7 @@
     "swiper": "^11.1.4"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.4"
   }
