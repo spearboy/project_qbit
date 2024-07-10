@@ -1,10 +1,12 @@
 import React from 'react'
+import logoSvg from "../../../public/img/logo.svg"
+import Image from 'next/image'
 
 const Sidebar = () => {
     return (
         <div className='sidebar'>
             <div className="logo">
-                <img src="" alt="" />
+            <Image src={logoSvg} width={30} alt="qbit logo" height={30}/>
             </div>
             <div className="my_store">
                 <div className="my_store_title">
@@ -17,7 +19,7 @@ const Sidebar = () => {
                 </div>
             </div>
             <div className="sales_management">
-                <div className="sales_management_title">
+                <div className="sales_management_title">   
                     <h2>매출 관리</h2>
                     <div className="icon-24-arrow-down"></div>
                 </div>

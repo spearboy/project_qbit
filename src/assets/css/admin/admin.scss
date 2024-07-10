@@ -3,10 +3,21 @@
     height: 100vh;
     // background-color: #000;
 
+    .logo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            width: 94px;
+            height: 56px;
+            text-align: center;
+        }
+    }
+
     .my_store{
         .my_store_title{
             display: flex;
-            margin-top: 75px;
+            margin-top: 72px;
             padding: 0px 24px;
             justify-content: space-between;
             width: 348px;
