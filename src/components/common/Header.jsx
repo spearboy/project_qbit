@@ -8,6 +8,10 @@ export const Header = () => {
   const pathname = usePathname();
   const { bag, getTotalItems } = useBag();
 
+  if (pathname.includes('admin')) {
+    return null;
+  }
+
   return (
     <div className="top__header">
       {pathname === '/main' ? (

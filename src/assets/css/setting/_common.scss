@@ -393,4 +393,9 @@ input[type=radio] {
         @extend .icon-24;
         background-image: url('../../images/icons/ic24_receipt.svg');
     }
+
+    &-logout {
+        @extend .icon-24;
+        background-image: url('../../images/icons/ic24_logout.svg');
+    }
 }

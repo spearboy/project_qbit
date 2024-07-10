@@ -1,111 +1,292 @@
-.sidebar{
-    width: 348px;
-    height: 100vh;
-    // background-color: #000;
 
-    .logo{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        img{
-            width: 94px;
-            height: 56px;
-            text-align: center;
-        }
-    }
+#wrap{
+    display: flex;
+    width: 100%;
+    height: 1160px;
 
-    .my_store{
-        .my_store_title{
+    //sidebar
+    .sidebar{
+        width: 348px;
+        height: 1160px;
+        border-width: 0px 1px 0px 0px;
+        border-style: solid;
+        border-color: #D8DEF1;
+    
+        .logo{
             display: flex;
-            margin-top: 72px;
-            padding: 0px 24px;
-            justify-content: space-between;
-            width: 348px;
-            height: 56px;
             align-items: center;
-
-            h2{
-                width: 268px;  
-                font-size: 18px;
-                font-weight: bold;
-                line-height: 26px;
+            justify-content: center;
+            margin-top: 32px;
+            img{
+                width: 94px;
+                height: 56px;
+                text-align: center;
             }
         }
-
-        .my_store_info{
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-            // padding: 0px 24px 0px 36px;
-
-            .dasiboard{
-                padding: 12px 24px 12px 36px;
-                background-color: var(--main-color-100);
-                color: var( --main-color-500);
-                font-size: 16px;
-                font-weight: 500;
-                line-height: 24px;
+    
+        .my_store{
+            .my_store_title{
+                display: flex;
+                margin-top: 72px;
+                padding: 0px 24px;
+                justify-content: space-between;
+                width: 348px;
+                height: 56px;
+                align-items: center;
+    
+                h2{
+                    width: 268px;  
+                    font-size: 18px;
+                    font-weight: bold;
+                    line-height: 26px;
+                }
             }
-
-            .store_information{
-                padding: 12px 24px 12px 36px;
-                font-size: 16px;
-                font-weight: 500;
-                line-height: 24px;
-                color: var(--greyscale-color-500);
-            }
-        }
-    }
-
-    .sales_management{
-        .sales_management_title{
-            display: flex;
-            padding: 15px 24px;
-            justify-content: space-between;
-            
-            h2{
-                font-size: 18px;
-                font-weight: bold;
-                line-height: 26px;
-            }
-        }
-
-        .sales_management_info{
-            .menu_statistics,
-            .date_statistics{
-                padding: 12px 24px 12px 36px;
-                font-size: 16px;
-                font-weight: 500;
-                line-height: 24px;
-                color: var(--greyscale-color-500);
+    
+            .my_store_info{
+                display: flex;
+                flex-direction: column;
+                align-items: left;
+                // padding: 0px 24px 0px 36px;
+    
+                .dasiboard{
+                    padding: 12px 24px 12px 36px;
+                    background-color: var(--main-color-100);
+                    color: var( --main-color-500);
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 24px;
+                    cursor: pointer;
+                }
+    
+                .store_information{
+                    padding: 12px 24px 12px 36px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 24px;
+                    color: var(--greyscale-color-500);
+                    cursor: pointer;
+                }
             }
         }
-    }
-
-    .menu_management{
-        padding: 15px 24px;
-        font-size: 18px;
-        font-weight: bold;
-        line-height: 26px;
-    }
-
-    .table_management{
-        .table_management_title{
-            display: flex;
-            justify-content: space-between;
+    
+        .sales_management{
+            .sales_management_title{
+                display: flex;
+                padding: 15px 24px;
+                justify-content: space-between;
+                
+                h2{
+                    font-size: 18px;
+                    font-weight: bold;
+                    line-height: 26px;
+                }
+            }
+    
+            .sales_management_info{
+                .menu_statistics,
+                .date_statistics{
+                    padding: 12px 24px 12px 36px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 24px;
+                    color: var(--greyscale-color-500);
+                    cursor: pointer;
+                }
+            }
+        }
+    
+        .menu_management{
             padding: 15px 24px;
             font-size: 18px;
             font-weight: bold;
             line-height: 26px;
         }
-        .table_management_info{
-            .check_QR,
-            .edit{
-                padding: 12px 24px 12px 36px;
-                font-size: 16px;
-                font-weight: 500;
-                line-height: 24px;
-                color: var(--greyscale-color-500);
+    
+        .table_management{
+            .table_management_title{
+                display: flex;
+                justify-content: space-between;
+                padding: 15px 24px;
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 26px;
+            }
+            .table_management_info{
+                .check_QR,
+                .edit{
+                    padding: 12px 24px 12px 36px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 24px;
+                    color: var(--greyscale-color-500);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .main{
+        width: calc(100% - 348px);
+        height: 100vh;
+
+        //head
+        .head{
+            display: flex;
+            justify-content: space-between;
+            height: 120px;
+
+            .head_btn{
+                margin-left: 72px;
+                padding: 36px 0;
+
+                .head_btn_box{
+                    // padding: 0 0 0 76px;
+                    background-color: #EFF2FA;
+                    border-radius: 12px;
+                    border: 1px solid #D8DEF1;
+                    .pos{
+                        padding: 12px 22px;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 24px;
+                        color: #414247;
+                    }
+    
+                    .ad{
+                        padding: 12px 16px;
+                        color: var( --greyscale-color-000);
+                        background-color: var(--main-color-500);
+                        box-shadow: -2px 0px 9px 0px rgba(0, 0, 0, 0.24);
+                        border-radius: 12px;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 24px;
+                    }
+                }
+
+                
+            }
+
+            .head_logout{
+                display: flex;
+                gap: 8px;
+                padding: 48px 0;
+                justify-content: center;
+                align-items: center;
+
+                p{
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 24px;
+                    text-align: right;
+                }
+
+                .icon-24-logout{
+                    margin-right: 72px;
+                }
+            }
+        }
+
+        .dashboard{
+            height: calc(1160px - 120px);
+            background-color: #EFF2FA;
+
+            .dash_title{
+                padding-top: 72px;
+                margin-left: 72px;
+
+                p{
+                    font-weight: 500;
+                    font-size: 36px;
+                    color: #252629;
+
+                    span{
+                            font-weight: 700;
+                            font-size: 36px;
+                    }
+
+                    .dash_num{
+                        font-weight: 700;
+                            font-size: 36px;
+                            color: #F76F5A
+                    }
+                }
+            }
+
+            .dash_btn{
+                margin-top: 32px;
+                margin-left: 72px;
+                p{
+                    font-size: 16px;
+                    font-weight: bold;
+                    line-height: 24px;
+                }
+
+                ul{
+                    margin-top: 16px;
+                    display: flex;
+                    gap: 8px;
+                    li{
+                        align-items: center;
+                        padding: 12px 16px;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 24px;
+                        color: #707689;
+                        background-color: #D8DEF1;
+                        border-radius: 40px;
+
+                        &:nth-child(2){
+                            background-color: #252629;
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+            }
+
+            .dash_box{
+                width: 1428px;
+                height: 160px;
+                background-color: #FFFFFF;
+                border-radius: 12px;
+                margin-left: 72px;
+                margin-top: 24px;
+                display: flex;
+
+                .actual_sales,
+                .order,
+                .cancellation{
+                    width: 450px;
+                    margin-top: 45px;
+                        .actual_sales_title{
+                            font-size: 14px;
+                            font-weight: bold;
+                            line-height: 22px;
+                            color: #707689;
+                            margin-bottom: 8px;
+                    }
+
+                    p{
+                        font-size: 28px;
+                        font-weight: bold;
+                        line-height: 40px;
+                    }
+                }
+
+                .actual_sales{
+                    margin-left: 40px;
+                }
+
+                
+            }
+
+            .dash_chart {
+                width: 1432px;
+                height: 460px;
+                background-color: #fff;
+                border-radius: 12px;
+                margin-left: 72px;
+                margin-top: 16px;
             }
         }
     }
