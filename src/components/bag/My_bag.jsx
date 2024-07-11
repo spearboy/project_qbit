@@ -1,5 +1,3 @@
-"use client"
-
 import React from 'react';
 import Quantity from '../common/Quantity';
 import { useRouter } from 'next/navigation';
@@ -26,14 +24,16 @@ const My_bag = () => {
         ) : (
           bag.items.map((item) => (
             <div className='detail' key={item.id}>
-              <ul>
-                <li>{item.name}</li>
-                {item.options.map((option, index) => (
-                  <li key={index}>{option.name} ({option.price}원)</li>
-                ))}
-                <li>{item.price * item.quantity}원</li>
-              </ul>
-              <i className='icon-24-delete' onClick={() => handleDelete(item.id)}></i>
+              <div className="detail_info">
+                <ul>
+                  <li>{item.name}</li>
+                  {item.options.map((option, index) => (
+                    <li key={index}>{option.name} ({option.price}원)</li>
+                  ))}
+                  <li>{item.price * item.quantity}원</li>
+                </ul>
+                <i className='icon-24-delete' onClick={() => handleDelete(item.id)}></i>
+              </div>
               <div className='btnQuan'>
                 <button onClick={() => handleOptionChange(item.id)}>옵션변경</button>
                 <Quantity />
@@ -43,7 +43,7 @@ const My_bag = () => {
         )}
       </div>
     </div>
-  )
+  );
 }
 
 export default My_bag;

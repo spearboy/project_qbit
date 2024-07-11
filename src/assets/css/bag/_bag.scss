@@ -9,6 +9,7 @@
             font-weight: bold;
             line-height: 24px;
             color: var(--greyscale-color-600);
+            
         }
     
         p{
@@ -20,37 +21,41 @@
             color: var(--greyscale-color-400);
         }
         .detail{
-            display: flex;
+            // display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-top: 24px;
             
-    
-            ul{
+            .detail_info{
                 display: flex;
-                flex-direction: column;
-                gap: 4px;
-                
-                li{
-                    &:nth-child(1){
-                        font-size: 14px;
-                        font-weight: 500;
-                        line-height: 20px;
-                        color: var(--greyscale-color-600);
-                    }
-    
-                    &:nth-child(2){
-                        font-size: 12px;
-                        line-height: 18px;
-                        color: var(--greyscale-color-400);
-                    }
-    
-                    &:nth-child(3){
-                        font-size: 14px;
-                        font-weight: 500;
-                        line-height: 20px;
-                        color: var(--greyscale-color-500);
-                        margin-bottom: 16px;
+                justify-content: space-between;
+                align-items: flex-start;
+                ul{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                    
+                    li{
+                        &:nth-child(1){
+                            font-size: 14px;
+                            font-weight: 500;
+                            line-height: 20px;
+                            color: var(--greyscale-color-600);
+                        }
+        
+                        &:nth-child(2){
+                            font-size: 12px;
+                            line-height: 18px;
+                            color: var(--greyscale-color-400);
+                        }
+        
+                        &:nth-child(3){
+                            font-size: 14px;
+                            font-weight: 500;
+                            line-height: 20px;
+                            color: var(--greyscale-color-500);
+                            margin-bottom: 16px;
+                        }
                     }
                 }
             }
@@ -61,6 +66,7 @@
             justify-content: flex-end;
             padding-bottom: 32px;
             gap: 8px;
+            margin-top: 16px;
 
             button{
                 display: flex;

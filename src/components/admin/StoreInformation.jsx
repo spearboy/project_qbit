@@ -41,7 +41,7 @@ const StoreInformation = () => {
           <div className="store_search">
             <div className="store_search_info">
               <button className="address_search">주소검색</button>
-              <input type="text" />
+              <input type="text" readOnly />
             </div>
             <input type="text" placeholder="상세주소를 입력해주세요" />
           </div>

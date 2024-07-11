@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { useBag } from '@/context/BagContext';
+import Link from "next/link";
 
 const Your_bag = () => {
   const { otherBags } = useBag();
@@ -27,10 +28,10 @@ const Your_bag = () => {
           ))
         )}
       </div>
-      <div className='menu_plus'>
+      <Link href='/main' className='menu_plus'>
         <span>메뉴 추가</span>
         <div className="plus"></div>
-      </div>
+      </Link>
     </div>
   );
 }
