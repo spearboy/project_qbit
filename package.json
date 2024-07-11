@@ -9,14 +9,20 @@
     "server": "nodemon server.js"
   },
   "dependencies": {
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
     "@auth/prisma-adapter": "^2.4.1",
     "axios": "^1.7.2",
     "chart.js": "^4.4.3",
     "cookie": "^0.6.0",
+<<<<<<< Updated upstream
 =======
     "chart.js": "^4.4.3",
 >>>>>>> 0e6e66e06c1216a908b3629cac61821745a60b5a
+=======
+>>>>>>> Stashed changes
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "gsap": "^3.12.5",
