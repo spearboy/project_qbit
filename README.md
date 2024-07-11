@@ -10,7 +10,7 @@ QR 테이블 오더를 구현한 시스템 포트폴리오 입니다.
 
 ### 메뉴판
 
-**모바일 & 테블릿**   
+**모바일 & 테블릿**  
 ![사이트 QR](qr.png)
 
 1. [메인 랜딩 페이지](https://project-qbit.vercel.app/)
@@ -44,4 +44,31 @@ npm install slick-carousel 설치 필요
 sudo npm install socket.io socket.io-client
 npm install --save react-lottie-player
 npm install react-lottie
+
+sudo npm install next-auth axios jsonwebtoken cookie // 로그인시 필요한 패키지
+npm install mongoose
+npm install @auth/prisma-adapter
+npx prisma generate
+
 ```
+
+---
+
+## 네이버 아이디 연동
+
+사용 API 필수
+
+```
+회원 이름
+연락처 이메일 주소
+휴대전화번호
+```
+
+```선택
+성별
+생일
+연령대
+출생연도
+```
+
+NAVER_CLIENT_ID, NAVER_CLIENT_SECRET 은 .env.local
