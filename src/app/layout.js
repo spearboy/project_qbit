@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
-      <link rel="icon" type="image/svg+xml" href="favicon.ico" />
+      <link rel="icon" type="image/svg+xml" href="../../public/img/logo.svg" />
       <body>
         <BagProvider>
           <Header />
