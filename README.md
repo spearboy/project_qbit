@@ -11,7 +11,8 @@ QR 테이블 오더를 구현한 시스템 포트폴리오 입니다.
 ### 메뉴판
 
 **모바일 & 테블릿**   
-![사이트 QR](qr.png)
+![사이트 QR](https://github.com/user-attachments/assets/0d58e631-ccf5-4a17-aaca-4cac0ea3059b)
+
 
 1. [메인 랜딩 페이지](https://project-qbit.vercel.app/)
 2. [메뉴판 메인 페이지](https://project-qbit.vercel.app/main)
